@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import LangSwitch from "@/components/LangSwitch";
 import LessonList from "@/components/LessonList";
+import OfflineDownload from "@/components/OfflineDownload";
 import { APP_NAME, LANGS, isLang, ui } from "@/lib/i18n";
 import { buildMetadata } from "@/lib/seo";
 
@@ -38,6 +39,8 @@ export default async function LessonsPage({ params }: { params: Promise<{ lang: 
 
       <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">{ui.lessons[lang]}</h2>
       <LessonList lang={lang} />
+
+      <OfflineDownload lang={lang} />
 
       <p className="text-center text-xs text-stone-500">{ui.offlineReady[lang]}</p>
     </main>

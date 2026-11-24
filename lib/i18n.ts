@@ -34,6 +34,11 @@ export const ui = {
   tryAgain: { rw: "Ongera ugerageze", en: "Try again" },
   back: { rw: "Subira ku masomo", en: "Back to lessons" },
   streak: { rw: "Iminsi ikurikiranye", en: "Day streak" },
+  downloadAll: { rw: "Gukuramo amasomo yose (akoreshwa nta interineti)", en: "Download all lessons for offline use" },
+  downloading: { rw: "Birimo gukuramo", en: "Downloading" },
+  downloaded: { rw: "Amasomo yose abitswe. Ushobora kuyasoma nta interineti.", en: "All lessons saved. You can read them without internet." },
+  downloadFailed: { rw: "Ntibyakunze. Reba interineti, hanyuma wongere ugerageze.", en: "It did not work. Check your connection and try again." },
+  updateDownload: { rw: "Vugurura amasomo yabitswe", en: "Update saved lessons" },
   offlineReady: {
     rw: "Amasomo wasomye aboneka nta interineti.",
     en: "Lessons you have opened work without internet.",

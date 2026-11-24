@@ -1,6 +1,6 @@
 /* PesaSoma service worker: makes visited lessons work without internet.
  * Bump CACHE_VERSION whenever you want every phone to refresh its cached files. */
-const CACHE_VERSION = "v1";
+const CACHE_VERSION = "v2";
 const CACHE = `pesasoma-${CACHE_VERSION}`;
 
 // Pages and files cached right after install.
@@ -41,7 +41,7 @@ self.addEventListener("fetch", (event) => {
 });
 
 async function cacheFirst(req) {
-  const cached = await caches.match(req);
+  const cached = await caches.match(req, { ignoreVary: true });
   if (cached) return cached;
   const res = await fetch(req);
   if (res.ok) (await caches.open(CACHE)).put(req, res.clone());
@@ -55,10 +55,10 @@ async function networkFirst(req) {
     if (res.ok) (await caches.open(CACHE)).put(req, res.clone());
     return res;
   } catch (err) {
-    const cached = await caches.match(req);
+    const cached = await caches.match(req, { ignoreVary: true });
     if (cached) return cached;
     if (req.mode === "navigate") {
-      const home = await caches.match("/rw");
+      const home = await caches.match("/rw", { ignoreVary: true });
       if (home) return home;
     }
     throw err;
