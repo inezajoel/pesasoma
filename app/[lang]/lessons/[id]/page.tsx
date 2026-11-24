@@ -1,14 +1,32 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import LangSwitch from "@/components/LangSwitch";
 import Quiz from "@/components/Quiz";
 import { LANGS, isLang, ui } from "@/lib/i18n";
 import { getLesson, lessons } from "@/lib/lessons";
+import { buildMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
   return LANGS.flatMap((lang) => lessons.map((l) => ({ lang, id: l.id })));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; id: string }>;
+}): Promise<Metadata> {
+  const { lang, id } = await params;
+  const lesson = getLesson(id);
+  if (!isLang(lang) || !lesson) return {};
+  return buildMetadata({
+    title: `${lesson.title[lang]} | PesaSoma`,
+    description: lesson.summary[lang],
+    path: `/${lang}/lessons/${id}`,
+    lang,
+  });
 }
 
 export default async function LessonPage({ params }: { params: Promise<{ lang: string; id: string }> }) {

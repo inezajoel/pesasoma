@@ -12,6 +12,10 @@ export type Bilingual = Record<Lang, string>;
 export const APP_NAME = "PesaSoma";
 
 export const ui = {
+  siteDescription: {
+    rw: "Amasomo magufi y'ubuntu: ingengo y'imari, kuzigama, kwirinda uburiganya kuri Mobile Money, inguzanyo n'ubucuruzi.",
+    en: "Short free lessons: budgeting, saving, mobile money safety, loans and business. Works offline.",
+  },
   tagline: {
     rw: "Wige gucunga amafaranga yawe",
     en: "Learn to manage your money",

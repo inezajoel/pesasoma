@@ -1,12 +1,25 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import LangSwitch from "@/components/LangSwitch";
 import LessonList from "@/components/LessonList";
 import { APP_NAME, LANGS, isLang, ui } from "@/lib/i18n";
+import { buildMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
   return LANGS.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isLang(lang)) return {};
+  return buildMetadata({
+    title: `${APP_NAME} - ${ui.tagline[lang]}`,
+    description: ui.siteDescription[lang],
+    path: `/${lang}`,
+    lang,
+  });
 }
 
 export default async function LessonsPage({ params }: { params: Promise<{ lang: string }> }) {

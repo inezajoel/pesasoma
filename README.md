@@ -4,6 +4,8 @@ Offline-first financial-literacy app for Rwanda. Lessons in **Kinyarwanda** and 
 short quizzes, a daily streak, and no account needed. Built as a PWA so it installs from the
 browser and keeps working without internet.
 
+**Live app:** https://pesasoma.vercel.app
+
 **Stack:** Next.js (App Router, TypeScript) · Tailwind CSS v4 · hand-written service worker.
 
 ## Run it
@@ -52,3 +54,7 @@ The visited pages still load. On Android, Chrome's menu shows "Install app".
 - Changed the cached files list in `public/sw.js`? Bump `CACHE_VERSION` so phones refresh.
 - This folder is inside OneDrive: `node_modules` has thousands of files and will sync.
   Consider keeping the project outside OneDrive (for example `C:\dev\pesasoma`).
+
+## License
+
+MIT. See the `LICENSE` file.

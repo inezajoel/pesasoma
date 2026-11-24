@@ -1,13 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+import { ui } from "@/lib/i18n";
+import { SITE_URL, buildMetadata } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PesaSoma",
-  description: "Wige gucunga amafaranga yawe. Learn to manage your money.",
+  metadataBase: new URL(SITE_URL),
   applicationName: "PesaSoma",
   appleWebApp: { capable: true, title: "PesaSoma", statusBarStyle: "default" },
   icons: { icon: "/icons/icon-192.png", apple: "/icons/icon-192.png" },
+  ...buildMetadata({
+    title: "PesaSoma - Wige gucunga amafaranga yawe",
+    description: ui.siteDescription.rw + " " + ui.siteDescription.en,
+    path: "/",
+    lang: "rw",
+  }),
 };
 
 export const viewport: Viewport = {
