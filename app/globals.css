@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* System fonts only: no web-font downloads, so pages stay tiny on slow data. */
+@theme {
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --color-brand: #047857;
+  --color-brand-dark: #065f46;
+  --color-brand-soft: #ecfdf5;
+}
+
+body {
+  background: #fafaf9;
+  color: #1c1917;
+}
