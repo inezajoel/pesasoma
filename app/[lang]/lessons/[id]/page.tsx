@@ -38,15 +38,15 @@ export default async function LessonPage({ params }: { params: Promise<{ lang: s
   const audioSrc = lesson.audio?.[lang];
 
   return (
-    <main className="space-y-6">
-      <nav className="flex items-center justify-between">
+    <main className="flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start lg:gap-x-10">
+      <nav className="flex items-center justify-between lg:col-span-2">
         <Link href={`/${lang}`} className="text-sm font-semibold text-brand">
           ‹ {ui.lessons[lang]}
         </Link>
         <LangSwitch lang={lang} path={`/lessons/${id}`} />
       </nav>
 
-      <header>
+      <header className="lg:col-span-2">
         <p className="text-4xl" aria-hidden>
           {lesson.icon}
         </p>
@@ -54,6 +54,7 @@ export default async function LessonPage({ params }: { params: Promise<{ lang: s
         <p className="mt-1 text-stone-600">{lesson.summary[lang]}</p>
       </header>
 
+      <div className="space-y-6">
       {audioSrc && <audio controls preload="none" src={audioSrc} className="w-full" />}
 
       <ol className="space-y-3">
@@ -74,8 +75,11 @@ export default async function LessonPage({ params }: { params: Promise<{ lang: s
         <h2 className="font-semibold text-brand-dark">💡 {ui.example[lang]}</h2>
         <p className="mt-1 text-stone-800">{lesson.example[lang]}</p>
       </aside>
+      </div>
 
-      <Quiz lesson={lesson} lang={lang} />
+      <div className="lg:sticky lg:top-6">
+        <Quiz lesson={lesson} lang={lang} />
+      </div>
     </main>
   );
 }

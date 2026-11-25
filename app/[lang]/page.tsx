@@ -28,21 +28,26 @@ export default async function LessonsPage({ params }: { params: Promise<{ lang: 
   if (!isLang(lang)) notFound();
 
   return (
-    <main className="space-y-6">
-      <header className="flex items-start justify-between gap-3">
+    <main className="space-y-6 lg:grid lg:grid-cols-[320px_minmax(0,1fr)] lg:grid-rows-[auto_auto_1fr] lg:items-start lg:gap-x-12 lg:gap-y-6 lg:space-y-0">
+      <header className="flex items-start justify-between gap-3 lg:col-start-1 lg:row-start-1">
         <div>
-          <h1 className="text-3xl font-extrabold text-brand">{APP_NAME}</h1>
+          <h1 className="text-3xl font-extrabold text-brand lg:text-4xl">{APP_NAME}</h1>
           <p className="text-stone-600">{ui.tagline[lang]}</p>
+          <p className="mt-3 hidden text-sm leading-relaxed text-stone-600 lg:block">{ui.siteDescription[lang]}</p>
         </div>
         <LangSwitch lang={lang} />
       </header>
 
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">{ui.lessons[lang]}</h2>
-      <LessonList lang={lang} />
+      <section className="space-y-4 lg:col-start-2 lg:row-span-3 lg:row-start-1">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500">{ui.lessons[lang]}</h2>
+        <LessonList lang={lang} />
+      </section>
 
-      <OfflineDownload lang={lang} />
+      <div className="lg:col-start-1 lg:row-start-2">
+        <OfflineDownload lang={lang} />
+      </div>
 
-      <p className="text-center text-xs text-stone-500">{ui.offlineReady[lang]}</p>
+      <p className="text-center text-xs text-stone-500 lg:col-start-1 lg:row-start-3">{ui.offlineReady[lang]}</p>
     </main>
   );
 }

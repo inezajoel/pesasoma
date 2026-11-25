@@ -18,7 +18,7 @@ export default function Home() {
       <p className="mt-10 text-sm font-semibold uppercase tracking-wide text-stone-500">
         {ui.chooseLanguage.rw} / {ui.chooseLanguage.en}
       </p>
-      <div className="mt-3 flex w-full flex-col gap-3">
+      <div className="mt-3 flex w-full max-w-sm flex-col gap-3">
         <Link href="/rw" className="rounded-2xl bg-brand px-6 py-4 text-lg font-bold text-white">
           Kinyarwanda
         </Link>

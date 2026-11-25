@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="rw">
       <body className="font-sans antialiased">
-        <div className="mx-auto min-h-screen max-w-md px-4 py-6">{children}</div>
+        <div className="mx-auto min-h-screen max-w-md px-4 py-6 md:max-w-3xl md:px-8 md:py-10 lg:max-w-5xl">{children}</div>
         <ServiceWorkerRegister />
       </body>
     </html>
