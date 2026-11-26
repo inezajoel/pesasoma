@@ -56,10 +56,8 @@ The visited pages still load. On Android, Chrome's menu shows "Install app".
 
 ## Notes
 
-- **Kinyarwanda text is a draft.** Have a native speaker review it before launch.
+- The Kinyarwanda text was reviewed by fluent speakers. Spotted a mistake? Open an issue.
 - Changed the cached files list in `public/sw.js`? Bump `CACHE_VERSION` so phones refresh.
-- This folder is inside OneDrive: `node_modules` has thousands of files and will sync.
-  Consider keeping the project outside OneDrive (for example `C:\dev\pesasoma`).
 
 ## License
 
