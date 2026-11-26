@@ -8,6 +8,12 @@ browser and keeps working without internet.
 
 **Stack:** Next.js (App Router, TypeScript) · Tailwind CSS v4 · hand-written service worker.
 
+## Screenshots
+
+| Desktop | Mobile |
+|---|---|
+| ![PesaSoma on desktop](docs/desktop.png) | <img src="docs/mobile.png" alt="PesaSoma on mobile" width="260"> |
+
 ## Run it
 
 Requires **Node.js 20.9 or newer** (`node -v`).
