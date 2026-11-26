@@ -19,6 +19,7 @@ function pageUrls(): string[] {
   const urls = ["/"];
   for (const lang of LANGS) {
     urls.push(`/${lang}`);
+    urls.push(`/${lang}/about`);
     for (const lesson of lessons) urls.push(`/${lang}/lessons/${lesson.id}`);
   }
   return urls;

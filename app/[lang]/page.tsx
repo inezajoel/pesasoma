@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import LangSwitch from "@/components/LangSwitch";
 import LessonList from "@/components/LessonList";
@@ -47,7 +48,12 @@ export default async function LessonsPage({ params }: { params: Promise<{ lang: 
         <OfflineDownload lang={lang} />
       </div>
 
-      <p className="text-center text-xs text-stone-500 lg:col-start-1 lg:row-start-3">{ui.offlineReady[lang]}</p>
+      <div className="space-y-3 text-center lg:col-start-1 lg:row-start-3">
+        <p className="text-xs text-stone-500">{ui.offlineReady[lang]}</p>
+        <Link href={`/${lang}/about`} className="inline-block text-sm font-semibold text-brand underline">
+          {ui.about[lang]}
+        </Link>
+      </div>
     </main>
   );
 }
